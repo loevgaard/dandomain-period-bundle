@@ -3,11 +3,12 @@
 namespace Loevgaard\DandomainPeriodBundle\PeriodCreator;
 
 use Dandomain\Import\Period;
-use Dandomain\Xml\Period as PeriodElement;
 use Dandomain\ImportExportClient;
+use Dandomain\Xml\Period as PeriodElement;
 use Loevgaard\DandomainPeriodBundle\PeriodHelper\PeriodHelperInterface;
 
-class PeriodCreator implements PeriodCreatorInterface {
+class PeriodCreator implements PeriodCreatorInterface
+{
     /**
      * @var PeriodHelperInterface
      */
@@ -19,7 +20,7 @@ class PeriodCreator implements PeriodCreatorInterface {
     protected $importDir;
 
     /**
-     * This is the public URL where imports can be accessed by Dandomain's servers
+     * This is the public URL where imports can be accessed by Dandomain's servers.
      *
      * @var string
      */
@@ -50,7 +51,7 @@ class PeriodCreator implements PeriodCreatorInterface {
         $this->dandomainPassword = $dandomainPassword;
     }
 
-    public function createPeriods() : bool
+    public function createPeriods(): bool
     {
         ImportExportClient::setHost($this->dandomainUrl);
         ImportExportClient::setUsername($this->dandomainUsername);
@@ -66,6 +67,6 @@ class PeriodCreator implements PeriodCreatorInterface {
         $periodImport->addElement(new PeriodElement($nextPeriod->getId(), $nextPeriod->getId(), $nextPeriod->getStart(), $nextPeriod->getEnd()));
         $res = $periodImport->import();
 
-        return (bool)$res->getStatus();
+        return (bool) $res->getStatus();
     }
 }

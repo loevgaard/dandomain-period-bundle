@@ -5,9 +5,9 @@ namespace Loevgaard\DandomainPeriodBundle\PeriodHelper;
 use Loevgaard\DandomainPeriodBundle\Period\Period;
 use Loevgaard\DandomainPeriodBundle\Period\PeriodInterface;
 
-class PeriodHelper implements PeriodHelperInterface {
+class PeriodHelper implements PeriodHelperInterface
+{
     /**
-
     /**
      * @var string
      */
@@ -36,7 +36,7 @@ class PeriodHelper implements PeriodHelperInterface {
         $this->startDay = ucfirst($startDay);
     }
 
-    public function currentPeriod() : PeriodInterface
+    public function currentPeriod(): PeriodInterface
     {
         // @todo to test this it would be clever to install carbon where you can inject static dates to test against
         // in this bundle we presume that a period changes every week
@@ -44,7 +44,7 @@ class PeriodHelper implements PeriodHelperInterface {
         $now = new \DateTimeImmutable();
 
         // first deduce the start and end dates
-        if($now->format('l') === $this->startDay) {
+        if ($now->format('l') === $this->startDay) {
             $startDay = new \DateTimeImmutable();
         } else {
             $startDay = new \DateTimeImmutable('last '.$this->startDay);

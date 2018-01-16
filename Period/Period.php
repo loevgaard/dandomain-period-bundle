@@ -5,7 +5,7 @@ namespace Loevgaard\DandomainPeriodBundle\Period;
 class Period implements PeriodInterface
 {
     /**
-     * This is the formatted id that could be imported into Dandomain
+     * This is the formatted id that could be imported into Dandomain.
      *
      * @var string
      */
@@ -35,7 +35,7 @@ class Period implements PeriodInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getId(): string
     {
@@ -43,7 +43,7 @@ class Period implements PeriodInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getNumber(): int
     {
@@ -51,7 +51,7 @@ class Period implements PeriodInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getStart(): \DateTimeImmutable
     {
@@ -59,7 +59,7 @@ class Period implements PeriodInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getEnd(): \DateTimeImmutable
     {

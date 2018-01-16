@@ -2,7 +2,8 @@
 
 namespace Loevgaard\DandomainPeriodBundle\Period;
 
-interface PeriodInterface {
+interface PeriodInterface
+{
     /**
      * @return string
      */

@@ -32,9 +32,11 @@ class CreatePeriodsCommand extends ContainerAwareCommand
     }
 
     /**
-     * @param InputInterface $input
+     * @param InputInterface  $input
      * @param OutputInterface $output
+     *
      * @return int|null
+     *
      * @throws \Exception
      */
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -47,7 +49,7 @@ class CreatePeriodsCommand extends ContainerAwareCommand
 
         $res = $this->periodCreator->createPeriods();
 
-        if(!$res) {
+        if (!$res) {
             throw new \Exception('The import failed.');
         }
 
