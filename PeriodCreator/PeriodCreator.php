@@ -40,7 +40,7 @@ class PeriodCreator implements PeriodCreatorInterface {
      */
     protected $dandomainPassword;
 
-    public function __construct(PeriodHelperInterface $periodHelper, string $importDir, string $importUrl, string $dandomainUrl, string $dandomainUsername, string $dandomainPassword, string $format, string $interval, string $startYear, string $startDay)
+    public function __construct(PeriodHelperInterface $periodHelper, string $importDir, string $importUrl, string $dandomainUrl, string $dandomainUsername, string $dandomainPassword)
     {
         $this->periodHelper = $periodHelper;
         $this->importDir = realpath($importDir);

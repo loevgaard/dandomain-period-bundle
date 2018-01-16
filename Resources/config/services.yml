@@ -1,0 +1,24 @@
+services:
+    loevgaard_dandomain_period.create_periods_command:
+        class: Loevgaard\DandomainPeriodBundle\Command\CreatePeriodsCommand
+        arguments:
+            - "@loevgaard_dandomain_period.period_creator"
+        tags: [console.command]
+
+    loevgaard_dandomain_period.period_creator:
+        class: Loevgaard\DandomainPeriodBundle\PeriodCreator\PeriodCreator
+        arguments:
+            - "@loevgaard_dandomain_period.period_helper"
+            - "%loevgaard_dandomain_period.import_dir%"
+            - "%loevgaard_dandomain_period.import_url%"
+            - "%loevgaard_dandomain_period.dandomain_url%"
+            - "%loevgaard_dandomain_period.dandomain_username%"
+            - "%loevgaard_dandomain_period.dandomain_password%"
+
+    loevgaard_dandomain_period.period_helper:
+        class: Loevgaard\DandomainPeriodBundle\PeriodHelper\PeriodHelper
+        arguments:
+            - "%loevgaard_dandomain_period.format%"
+            - "%loevgaard_dandomain_period.interval%"
+            - "%loevgaard_dandomain_period.start_year%"
+            - "%loevgaard_dandomain_period.start_day%"

@@ -19,6 +19,10 @@ class LoevgaardDandomainPeriodExtension extends Extension
         $container->setParameter('loevgaard_dandomain_period.start_year', $config['start_year']);
         $container->setParameter('loevgaard_dandomain_period.start_day', $config['start_day']);
         $container->setParameter('loevgaard_dandomain_period.import_dir', $config['import_dir']);
+        $container->setParameter('loevgaard_dandomain_period.import_url', $config['import_url']);
+        $container->setParameter('loevgaard_dandomain_period.dandomain_url', $config['dandomain_url']);
+        $container->setParameter('loevgaard_dandomain_period.dandomain_username', $config['dandomain_username']);
+        $container->setParameter('loevgaard_dandomain_period.dandomain_password', $config['dandomain_password']);
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
