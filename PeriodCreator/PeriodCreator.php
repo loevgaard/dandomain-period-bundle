@@ -80,8 +80,11 @@ class PeriodCreator implements PeriodCreatorInterface
         $periodImport->addElement(new PeriodElement($nextPeriod->getId(), $nextPeriod->getId(), $nextPeriod->getStart(), $nextPeriod->getEnd()));
 
         if ($dryRun) {
+            $path = $periodImport->createImportFile();
+            $this->logger->info('Import file was saved to: '.$path);
             return true;
         }
+
         $res = $periodImport->import();
 
         return (bool) $res->getStatus();
