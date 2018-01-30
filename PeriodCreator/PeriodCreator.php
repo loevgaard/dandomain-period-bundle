@@ -87,6 +87,8 @@ class PeriodCreator implements PeriodCreatorInterface
 
         $res = $periodImport->import();
 
+        print_r($res);
+
         return (bool) $res->getStatus();
     }
 
