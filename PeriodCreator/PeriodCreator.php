@@ -90,5 +90,6 @@ class PeriodCreator implements PeriodCreatorInterface
     public function setLogger(LoggerInterface $logger): PeriodCreatorInterface
     {
         $this->logger = $logger;
+        return $this;
     }
 }
