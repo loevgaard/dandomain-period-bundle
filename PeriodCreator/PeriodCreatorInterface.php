@@ -2,13 +2,19 @@
 
 namespace Loevgaard\DandomainPeriodBundle\PeriodCreator;
 
+use Psr\Log\LoggerInterface;
+
 interface PeriodCreatorInterface
 {
     /**
      * This method will create the deduced (from settings) periods in Dandomain
      * If they are already created it will ignore that.
      *
+     * @param bool $dryRun
+     *
      * @return bool
      */
-    public function createPeriods(): bool;
+    public function createPeriods(bool $dryRun = false): bool;
+
+    public function setLogger(LoggerInterface $logger): self;
 }
