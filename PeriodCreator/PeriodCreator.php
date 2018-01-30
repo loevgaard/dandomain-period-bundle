@@ -87,7 +87,9 @@ class PeriodCreator implements PeriodCreatorInterface
 
         $res = $periodImport->import();
 
-        print_r($res);
+        if(!$res) {
+            $this->logger->emergency($res->getXml());
+        }
 
         return (bool) $res->getStatus();
     }
