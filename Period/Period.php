@@ -2,6 +2,8 @@
 
 namespace Loevgaard\DandomainPeriodBundle\Period;
 
+use Carbon\Carbon;
+
 class Period implements PeriodInterface
 {
     /**
@@ -17,16 +19,16 @@ class Period implements PeriodInterface
     protected $number;
 
     /**
-     * @var \DateTimeImmutable
+     * @var Carbon
      */
     protected $start;
 
     /**
-     * @var \DateTimeImmutable
+     * @var Carbon
      */
     protected $end;
 
-    public function __construct(string $id, int $number, \DateTimeImmutable $start, \DateTimeImmutable $end)
+    public function __construct(string $id, int $number, Carbon $start, Carbon $end)
     {
         $this->id = $id;
         $this->number = $number;
@@ -53,7 +55,7 @@ class Period implements PeriodInterface
     /**
      * {@inheritdoc}
      */
-    public function getStart(): \DateTimeImmutable
+    public function getStart(): Carbon
     {
         return $this->start;
     }
@@ -61,7 +63,7 @@ class Period implements PeriodInterface
     /**
      * {@inheritdoc}
      */
-    public function getEnd(): \DateTimeImmutable
+    public function getEnd(): Carbon
     {
         return $this->end;
     }

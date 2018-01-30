@@ -12,6 +12,7 @@
     "require": {
         "php": "^7.1",
         "loevgaard/dandomain-import-export": "^0.4.2",
+        "nesbot/carbon": "^1.22",
         "psr/log": "^1.0",
         "symfony/console": "^3.0||^4.0",
         "symfony/framework-bundle": "^3.0||^4.0"

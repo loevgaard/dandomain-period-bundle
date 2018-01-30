@@ -2,6 +2,8 @@
 
 namespace Loevgaard\DandomainPeriodBundle\Period;
 
+use Carbon\Carbon;
+
 interface PeriodInterface
 {
     /**
@@ -15,12 +17,12 @@ interface PeriodInterface
     public function getNumber(): int;
 
     /**
-     * @return \DateTimeImmutable
+     * @return Carbon
      */
-    public function getStart(): \DateTimeImmutable;
+    public function getStart(): Carbon;
 
     /**
-     * @return \DateTimeImmutable
+     * @return Carbon
      */
-    public function getEnd(): \DateTimeImmutable;
+    public function getEnd(): Carbon;
 }
