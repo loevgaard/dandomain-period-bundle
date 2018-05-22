@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Loevgaard\DandomainPeriodBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
@@ -15,6 +17,7 @@ class LoevgaardDandomainPeriodExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $container->setParameter('loevgaard_dandomain_period.format', $config['format']);
+        $container->setParameter('loevgaard_dandomain_period.ahead', $config['ahead']);
         $container->setParameter('loevgaard_dandomain_period.interval', $config['interval']);
         $container->setParameter('loevgaard_dandomain_period.start_year', $config['start_year']);
         $container->setParameter('loevgaard_dandomain_period.start_day', $config['start_day']);

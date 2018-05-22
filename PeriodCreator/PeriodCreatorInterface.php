@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Loevgaard\DandomainPeriodBundle\PeriodCreator;
 
-use Psr\Log\LoggerInterface;
+use Psr\Log\LoggerAwareInterface;
 
-interface PeriodCreatorInterface
+interface PeriodCreatorInterface extends LoggerAwareInterface
 {
     /**
      * This method will create the deduced (from settings) periods in Dandomain
@@ -15,6 +17,4 @@ interface PeriodCreatorInterface
      * @return bool
      */
     public function createPeriods(bool $dryRun = false): bool;
-
-    public function setLogger(LoggerInterface $logger): self;
 }

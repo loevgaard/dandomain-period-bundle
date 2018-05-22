@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Loevgaard\DandomainPeriodBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -20,12 +22,18 @@ class Configuration implements ConfigurationInterface
                     ->cannotBeEmpty()
                     ->info('This is the format for the period id in Dandomain. Use %d to insert the computed period number')
                 ->end()
+                ->integerNode('ahead')
+                    ->defaultValue('1')
+                    ->isRequired()
+                    ->cannotBeEmpty()
+                    ->info('Number of periods to create ahead')
+                ->end()
                 ->scalarNode('interval')
                     ->isRequired()
                     ->cannotBeEmpty()
                     ->info('A \DateInterval compatible string that tells how long every period should be, i.e. P6W for 6 weeks')
                 ->end()
-                ->scalarNode('start_year')
+                ->integerNode('start_year')
                     ->isRequired()
                     ->cannotBeEmpty()
                     ->info('Set the start year for when period calculations will start. If in doubt, just use the year you are in')

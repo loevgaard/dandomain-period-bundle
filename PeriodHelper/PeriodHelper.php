@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Loevgaard\DandomainPeriodBundle\PeriodHelper;
 
 use Carbon\Carbon;
@@ -66,13 +68,15 @@ class PeriodHelper implements PeriodHelperInterface
         return $period;
     }
 
-    public function nextPeriod(): PeriodInterface
+    public function nextPeriod(?PeriodInterface $period = null): PeriodInterface
     {
-        $currentPeriod = $this->currentPeriod();
+        if (!$period) {
+            $period = $this->currentPeriod();
+        }
 
-        $number = $currentPeriod->getNumber() + 1;
-        $start = $currentPeriod->getStart()->copy()->addWeek();
-        $end = $currentPeriod->getEnd()->copy()->addWeek();
+        $number = $period->getNumber() + 1;
+        $start = $period->getStart()->copy()->addWeek();
+        $end = $period->getEnd()->copy()->addWeek();
 
         return new Period(sprintf($this->format, $number), $number, $start, $end);
     }

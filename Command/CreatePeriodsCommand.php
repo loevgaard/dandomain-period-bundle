@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Loevgaard\DandomainPeriodBundle\Command;
 
 use Loevgaard\DandomainPeriodBundle\PeriodCreator\PeriodCreatorInterface;

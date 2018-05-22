@@ -9,6 +9,7 @@ services:
         class: Loevgaard\DandomainPeriodBundle\PeriodCreator\PeriodCreator
         arguments:
             - "@loevgaard_dandomain_period.period_helper"
+            - "%loevgaard_dandomain_period.ahead%"
             - "%loevgaard_dandomain_period.import_dir%"
             - "%loevgaard_dandomain_period.import_url%"
             - "%loevgaard_dandomain_period.dandomain_url%"
