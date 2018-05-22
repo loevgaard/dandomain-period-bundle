@@ -91,6 +91,8 @@ class PeriodCreator implements PeriodCreatorInterface
             $this->logger->info('Creating period: '.$period->getId().' | '.$period->getStart()->format('Y-m-d').' - '.$period->getEnd()->format('Y-m-d'));
 
             $periodImport->addElement(new PeriodElement($period->getId(), $period->getId(), $period->getStart(), $period->getEnd()));
+
+            $i++;
         } while ($i < $this->ahead);
 
         if ($dryRun) {
