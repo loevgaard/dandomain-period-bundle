@@ -61,7 +61,7 @@ class PeriodHelper implements PeriodHelperInterface
 
         // to find the period number we need the number of weeks since the start year
         $startYearDay = new Carbon('first '.$this->startDay.' of january '.$this->startYear);
-        $number = ceil(intval($weekEndDay->diff($startYearDay)->format('%a')) / 7);
+        $number = intval(ceil(intval($weekEndDay->diff($startYearDay)->format('%a')) / 7));
 
         $period = new Period(sprintf($this->format, $number), $number, $startDay, $endDay);
 
